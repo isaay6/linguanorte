@@ -12,8 +12,9 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e665f'/%3E%3Ctext x='32' y='40' fill='white' font-family='Arial,sans-serif' font-size='25' font-weight='700' text-anchor='middle'%3ELN%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="extras.css">
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -23,9 +24,14 @@
           <span class="brand-mark" aria-hidden="true">LN</span>
           <span>LinguaNorte</span>
         </a>
-        <div class="nav-links">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="sr-only">Abrir menú</span>
+          <span class="menu-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <div class="nav-links" id="menu">
           <a href="#inicio">Inicio</a>
           <a href="#programas">Programas</a>
+          <a href="#encaja">Tu programa</a>
           <a href="#precios">Precios y cómo funciona</a>
           <a class="nav-contact" href="#preguntanos">Pregúntanos <span aria-hidden="true">↗</span></a>
         </div>
@@ -37,65 +43,93 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">Academia 100 % online</p>
-            <h1 id="hero-title">Idiomas para llegar <em>más lejos.</em></h1>
+            <h1 id="hero-title">Idiomas para llegar <em id="hero-word" lang="es">más lejos.</em></h1>
             <p class="hero-lead">Clases online en directo y programas adaptados a tu objetivo, para avanzar con una ruta que encaja contigo.</p>
-            <a class="button button-primary" href="#preguntanos">Prueba de nivel gratis <span aria-hidden="true">→</span></a>
-            <p class="hero-note">20 minutos online · sin compromiso</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#encaja">Encuentra tu programa <span aria-hidden="true">→</span></a>
+              <a class="button button-ghost" href="#preguntanos">Pide tu prueba de nivel gratis</a>
+            </div>
+            <p class="hero-note">Prueba de nivel de 20 minutos online · sin compromiso</p>
           </div>
           <div class="language-panel" aria-label="Idiomas disponibles">
-            <p class="panel-label">Elige tu idioma</p>
-            <ul class="languages">
-              <li><span aria-hidden="true">01</span> Inglés</li>
-              <li><span aria-hidden="true">02</span> Francés</li>
-              <li><span aria-hidden="true">03</span> Alemán</li>
-              <li><span aria-hidden="true">04</span> Italiano</li>
-              <li><span aria-hidden="true">05</span> Portugués</li>
-              <li><span aria-hidden="true">06</span> Español para extranjeros</li>
+            <p class="panel-label" id="lang-label">Elige tu idioma</p>
+            <ul class="languages" aria-labelledby="lang-label">
+              <li><button type="button" class="lang" data-word="further." data-hi="hello" data-lang="en" aria-pressed="false"><span aria-hidden="true">01</span> Inglés</button></li>
+              <li><button type="button" class="lang" data-word="plus loin." data-hi="bonjour" data-lang="fr" aria-pressed="false"><span aria-hidden="true">02</span> Francés</button></li>
+              <li><button type="button" class="lang" data-word="weiter." data-hi="hallo" data-lang="de" aria-pressed="false"><span aria-hidden="true">03</span> Alemán</button></li>
+              <li><button type="button" class="lang" data-word="più lontano." data-hi="ciao" data-lang="it" aria-pressed="false"><span aria-hidden="true">04</span> Italiano</button></li>
+              <li><button type="button" class="lang" data-word="mais longe." data-hi="olá" data-lang="pt" aria-pressed="false"><span aria-hidden="true">05</span> Portugués</button></li>
+              <li><button type="button" class="lang" data-word="más lejos." data-hi="hola" data-lang="es" aria-pressed="false"><span aria-hidden="true">06</span> Español para extranjeros</button></li>
             </ul>
-            <div class="panel-orbit" aria-hidden="true"><span>hola</span><i></i></div>
+            <div class="panel-orbit" aria-hidden="true"><span id="orbit-word">hola</span><i></i></div>
           </div>
         </div>
       </section>
 
       <section class="section programs" id="programas" aria-labelledby="programas-title">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading reveal">
             <p class="eyebrow">Programas</p>
             <h2 id="programas-title">Un punto de partida para cada meta.</h2>
             <p>Encuentra el formato que necesitas y aprende en clases en directo por videollamada.</p>
           </div>
           <div class="program-grid">
-            <article class="program-card work">
-              <div class="card-number" aria-hidden="true">01</div>
+            <article class="program-card work reveal" id="p-trabajo">
+              <div class="card-top"><div class="card-number" aria-hidden="true">01</div>
+                <svg class="card-art" viewBox="0 0 96 96" aria-hidden="true"><rect x="14" y="34" width="68" height="44" rx="6"/><path d="M36 34v-8a6 6 0 0 1 6-6h12a6 6 0 0 1 6 6v8"/><path d="M14 54h68"/><rect class="fill" x="42" y="48" width="12" height="12" rx="2"/></svg>
+              </div>
               <h3>Idiomas para el trabajo</h3>
               <p>Para profesionales: reuniones, emails y entrevistas.</p>
               <p class="card-detail">Grupo de 6 o particular, con vocabulario de tu sector.</p>
+              <p class="card-price">59 €/mes en grupo · 22 €/h particular</p>
             </article>
-            <article class="program-card exams">
-              <div class="card-number" aria-hidden="true">02</div>
+            <article class="program-card exams reveal" id="p-examenes">
+              <div class="card-top"><div class="card-number" aria-hidden="true">02</div>
+                <svg class="card-art" viewBox="0 0 96 96" aria-hidden="true"><rect x="20" y="14" width="56" height="50" rx="5"/><path d="M32 30h32M32 42h20"/><circle class="fill" cx="62" cy="62" r="13"/><path d="M54 72l-4 14 12-6 12 6-4-14"/></svg>
+              </div>
               <h3>Preparación de exámenes</h3>
               <p>Para quien necesita un título: Cambridge, DELF, Goethe, DELE…</p>
               <p class="card-detail">Grupo con simulacros de examen mensuales.</p>
+              <p class="card-price">79 €/mes</p>
             </article>
-            <article class="program-card talk">
-              <div class="card-number" aria-hidden="true">03</div>
+            <article class="program-card talk reveal" id="p-conversacion">
+              <div class="card-top"><div class="card-number" aria-hidden="true">03</div>
+                <svg class="card-art" viewBox="0 0 96 96" aria-hidden="true"><path d="M12 22h46a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H34L20 70V58h-8a6 6 0 0 1-6-6V28a6 6 0 0 1 6-6z" transform="translate(4 0)"/><path class="fill" d="M52 46h28a5 5 0 0 1 5 5v18a5 5 0 0 1-5 5h-4v10l-12-10H52a5 5 0 0 1-5-5V51a5 5 0 0 1 5-5z"/></svg>
+              </div>
               <h3>Conversación</h3>
               <p>Para quien ya tiene base y quiere soltarse.</p>
               <p class="card-detail">Grupos de 4 con profesor nativo, 1 h.</p>
+              <p class="card-price">39 €/mes</p>
             </article>
-            <article class="program-card kids">
-              <div class="card-number" aria-hidden="true">04</div>
+            <article class="program-card kids reveal" id="p-kids">
+              <div class="card-top"><div class="card-number" aria-hidden="true">04</div>
+                <svg class="card-art" viewBox="0 0 96 96" aria-hidden="true"><rect x="12" y="46" width="34" height="34" rx="5"/><rect class="fill" x="50" y="46" width="34" height="34" rx="5"/><rect x="31" y="12" width="34" height="34" rx="5"/><path d="M42 36l6-14 6 14M44.500 31h7"/></svg>
+              </div>
               <h3>Kids</h3>
               <p>Para niños de 6 a 12 años.</p>
               <p class="card-detail">Clases de 45 min, con juegos.</p>
+              <p class="card-price">59 €/mes en grupo</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section finder" id="encaja" aria-labelledby="encaja-title">
+        <div class="container finder-grid">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Tu programa</p>
+            <h2 id="encaja-title">¿Qué programa te encaja?</h2>
+            <p>Tres preguntas y te decimos por dónde empezar.</p>
+          </div>
+          <div class="quiz reveal" id="quiz" aria-live="polite">
+            <noscript><p>Activa JavaScript para usar el recomendador, o mira los programas más arriba.</p></noscript>
           </div>
         </div>
       </section>
 
       <section class="section pricing" id="precios" aria-labelledby="precios-title">
         <div class="container">
-          <div class="section-heading split-heading">
+          <div class="section-heading split-heading reveal">
             <div>
               <p class="eyebrow">Precios y cómo funciona</p>
               <h2 id="precios-title">Claro desde el principio.</h2>
@@ -111,7 +145,38 @@
             <article class="price-card kids-price"><h3>Kids en grupo</h3><p class="price">59 <small>€/mes</small></p><p>Clases de 45 min con juegos</p></article>
           </div>
 
-          <div class="how-grid">
+          <div class="calc reveal" aria-labelledby="calc-title">
+            <div class="calc-form">
+              <p class="eyebrow">Calcula tu cuota</p>
+              <h3 class="subheading" id="calc-title">¿Cuánto pagarías al mes?</h3>
+              <label class="field"><span>Programa</span>
+                <select id="calc-program">
+                  <option value="grupo" data-price="59">Curso en grupo · 59 €/mes</option>
+                  <option value="conversacion" data-price="39">Conversación · 39 €/mes</option>
+                  <option value="examenes" data-price="79">Preparación de exámenes · 79 €/mes</option>
+                  <option value="kids" data-price="59">Kids en grupo · 59 €/mes</option>
+                  <option value="particular" data-price="22">Clases particulares · 22 €/h</option>
+                </select>
+              </label>
+              <label class="field" id="calc-hours-field" hidden><span>Horas al mes: <output id="calc-hours-out">4</output></span>
+                <input id="calc-hours" type="range" min="1" max="20" value="4">
+              </label>
+              <fieldset class="checks">
+                <legend>Descuentos</legend>
+                <label><input type="radio" name="disc" value="0" checked> Ninguno</label>
+                <label><input type="radio" name="disc" value="15"> Soy estudiante (−15 %)</label>
+                <label><input type="radio" name="disc" value="10"> Es mi segundo idioma (−10 %)</label>
+              </fieldset>
+            </div>
+            <div class="calc-result" aria-live="polite">
+              <p class="calc-label">Tu cuota estimada</p>
+              <p class="calc-total"><span id="calc-total">59</span> <small>€/mes</small></p>
+              <p class="calc-detail" id="calc-detail">Curso en grupo, 2 clases por semana.</p>
+              <p class="calc-note">Sin matrícula. Es una estimación: te confirmamos el importe en la entrevista inicial.</p>
+            </div>
+          </div>
+
+          <div class="how-grid reveal">
             <div>
               <p class="eyebrow">Cómo funciona</p>
               <h3 class="subheading">Empezar es sencillo.</h3>
@@ -119,7 +184,7 @@
             <ol class="steps">
               <li><span>1</span><div><strong>Prueba de nivel gratis online</strong><p>20 min.</p></div></li>
               <li><span>2</span><div><strong>Entrevista de 15 min</strong><p>Para elegir programa y horario.</p></div></li>
-              <li><span>3</span><div><strong>Primera clase gratis</strong></div></li>
+              <li><span>3</span><div><strong>Primera clase gratis</strong><p>Pruebas antes de pagar.</p></div></li>
               <li><span>4</span><div><strong>Clases en directo por Zoom</strong><p>Si faltas, la grabación y el material quedan en la plataforma.</p></div></li>
             </ol>
           </div>
@@ -133,13 +198,25 @@
       </section>
 
       <section class="contact" id="preguntanos" aria-labelledby="preguntanos-title">
-        <div class="container contact-inner">
-          <div>
-            <p class="eyebrow">Pregúntanos</p>
-            <h2 id="preguntanos-title">¿Tienes alguna duda?</h2>
-            <p>Cuéntanos qué necesitas y te ayudaremos a orientar tu siguiente paso.</p>
+        <div class="container">
+          <div class="contact-inner">
+            <div>
+              <p class="eyebrow">Pregúntanos</p>
+              <h2 id="preguntanos-title">¿Tienes alguna duda?</h2>
+              <p>Pregúntale a nuestro asistente o escríbenos por el formulario y te contestamos nosotros.</p>
+            </div>
+            <a class="button button-light" href="https://docs.google.com/forms/d/e/1FAIpQLSfmL36by2C63gd6oY9GllHoGBBmeivZBX9G3rOezIklijBbRg/viewform" target="_blank" rel="noopener noreferrer">Escríbenos tu duda <span aria-hidden="true">↗</span><span class="sr-only"> (se abre en una pestaña nueva)</span></a>
           </div>
-          <a class="button button-light" href="https://docs.google.com/forms/d/e/1FAIpQLSfmL36by2C63gd6oY9GllHoGBBmeivZBX9G3rOezIklijBbRg/viewform" target="_blank" rel="noopener noreferrer">Escríbenos tu duda <span aria-hidden="true">↗</span><span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+          <div class="ask">
+            <p class="ask-label">Pregunta rápida al asistente</p>
+            <div class="chips">
+              <button type="button" class="chip" data-q="¿Hay permanencia?">¿Hay permanencia?</button>
+              <button type="button" class="chip" data-q="¿Puedo probar una clase antes de pagar?">¿Puedo probar una clase antes de pagar?</button>
+              <button type="button" class="chip" data-q="¿Qué pasa si no puedo asistir a una clase?">¿Qué pasa si falto a una clase?</button>
+              <button type="button" class="chip" data-q="¿Qué descuentos tenéis?">¿Qué descuentos tenéis?</button>
+              <button type="button" class="chip" data-q="¿Cuál es el horario de las clases?">¿Cuál es el horario?</button>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -147,6 +224,7 @@
     <footer class="site-footer">
       <div class="container">LinguaNorte · Proyecto académico ficticio · UIE Grupo 10</div>
     </footer>
+
     <!-- Chatbot de LinguaNorte (n8n · workflow_chatbot_grupo_10) -->
     <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <style>
@@ -181,5 +259,6 @@
         },
       });
     </script>
+    <script src="app.js" defer></script>
   </body>
 </html>
