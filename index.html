@@ -142,6 +142,39 @@
     <footer class="site-footer">
       <div class="container">LinguaNorte · Proyecto académico ficticio · UIE Grupo 10</div>
     </footer>
-    <!-- N8N_CHAT_EMBED: aquí va el código CDN Embed de n8n -->
+    <!-- Chatbot de LinguaNorte (n8n · workflow_chatbot_grupo_10) -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+      :root {
+        --chat--color-primary: #0e665f;
+        --chat--color-primary-shade-50: #0b524c;
+        --chat--color-primary-shade-100: #083f3a;
+        --chat--color-secondary: #ed6e57;
+        --chat--header--background: #172525;
+        --chat--toggle--background: #0e665f;
+        --chat--toggle--hover--background: #0b524c;
+        --chat--toggle--active--background: #083f3a;
+      }
+    </style>
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+      createChat({
+        webhookUrl: 'https://isay-lab.app.n8n.cloud/webhook/47be91fc-544c-4c46-8e88-22c7d24d7d7f/chat',
+        defaultLanguage: 'en',
+        initialMessages: [
+          '¡Hola! Soy el asistente de LinguaNorte.',
+          'Pregúntame por nuestros programas, precios, horarios o cómo empezar.'
+        ],
+        i18n: {
+          en: {
+            title: 'LinguaNorte',
+            subtitle: 'Resolvemos tus dudas al momento',
+            footer: '',
+            getStarted: 'Nueva conversación',
+            inputPlaceholder: 'Escribe tu pregunta…',
+          },
+        },
+      });
+    </script>
   </body>
 </html>
